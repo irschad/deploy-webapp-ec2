@@ -25,9 +25,9 @@ Follow these steps to create and configure an EC2 instance:
 - Create a security group allowing SSH (port 22) access from **My IP**.  
 
 ### **2. Connect to EC2 Instance via SSH**
-Connect to the EC2 instance using your private key:
+Connect to the EC2 instance using the private key:
 ```bash
-ssh -i ~/.ssh/docker-server.pem ec2-user@your-public-ip
+ssh -i ~/.ssh/docker-server.pem ec2-user@http://98.80.231.175/
 ```
 
 ### **3. Install Docker on EC2 instance**
@@ -42,8 +42,16 @@ Disconnect and reconnect via SSH to apply the changes.
 ### **4. Pull and run Docker image**
 ```bash
 docker pull irschad/react-node-app:1.0
+```
+```bash
 docker run -d -p 3000:3080 irschad/react-node-app:1.0
+a5133606e540245192125d6653e0f34ca9dff94521406ac3d121e0bf90f6ca9c
+```
+```bash
 docker ps
+CONTAINER ID   IMAGE                        COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+a5133606e540   irschad/react-node-app:1.0   "docker-entrypoint.s…"   5 seconds ago   Up 2 seconds   0.0.0.0:3000->3080/tcp, :::3000->3080/tcp   serene_aryabhata
+
 ```
 
 ### **5. Enable external access to the web application**
@@ -66,7 +74,7 @@ Update Security Group to Open Port 3000:
 1. Open in Browser:
     Access the application using the public IPv4 address of your EC2 instance:
     http://98.80.231.175:3000/
-2. Access Using DNS Name:
+2. Access using DNS Name:
     Alternatively, use the instance's DNS name:
     http://ec2-98-80-231-175.compute-1.amazonaws.com:3000/
 
