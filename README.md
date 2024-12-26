@@ -23,7 +23,7 @@ Follow these steps to create and configure an EC2 instance:
 - Launch an **Amazon Linux 2** instance with **t2.micro** instance type.  Indicate Name as 'my-instance'
 - Set the **Auto-assign Public IP** to **Enable**.  
 - Create a security group called "security-group-docker-server" allowing SSH (port 22) access from **My IP**.
-- Add tag - enter Key as 'Type' and Value as "web-server-with-docker"
+- Add tag: enter Key as 'Type' and Value as "web-server-with-docker"
 
 ### **2. Connect to EC2 Instance via SSH**
 Connect to the EC2 instance using the private key:
