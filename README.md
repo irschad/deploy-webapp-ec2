@@ -31,28 +31,43 @@ ssh -i ~/.ssh/docker-server.pem ec2-user@http://98.80.231.175/
 ```
 
 ### **3. Install Docker on EC2 instance**
-```bash
-sudo yum update
-sudo yum install docker
-sudo service docker start
-sudo usermod -aG docker $USER
-```
-Disconnect and reconnect via SSH to apply the changes.
+  ```bash
+  sudo yum update
+  sudo yum install docker
+  ```
+- Start docker daemon
+  ```bash
+  sudo service docker start
+  ```
+- Check if docker is running
+  ```bash
+  ps aux | grep docker
+  ```
+- Add current user to docker group 
+  ```bash
+  sudo usermod -aG docker $USER
+  ```
+- Disconnect and reconnect via SSH to apply the changes
+  Run groups command to see docker group is added
+  ```bash
+  groups
+  ec2-user adm wheel systemd-journal docker
+  ```
 
 ### **4. Pull and run Docker image**
-```bash
-docker pull irschad/react-node-app:1.0
-```
-```bash
-docker run -d -p 3000:3080 irschad/react-node-app:1.0
-a5133606e540245192125d6653e0f34ca9dff94521406ac3d121e0bf90f6ca9c
-```
-```bash
-docker ps
-CONTAINER ID   IMAGE                        COMMAND                  CREATED         STATUS         PORTS                                       NAMES
-a5133606e540   irschad/react-node-app:1.0   "docker-entrypoint.s…"   5 seconds ago   Up 2 seconds   0.0.0.0:3000->3080/tcp, :::3000->3080/tcp   serene_aryabhata
-
-```
+  ```bash
+  docker pull irschad/react-node-app:1.0
+  ```
+  ```bash
+  docker run -d -p 3000:3080 irschad/react-node-app:1.0
+  a5133606e540245192125d6653e0f34ca9dff94521406ac3d121e0bf90f6ca9c
+  ```
+  ```bash
+  docker ps
+  CONTAINER ID   IMAGE                        COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+  a5133606e540   irschad/react-node-app:1.0   "docker-entrypoint.s…"   5 seconds ago   Up 2 seconds   0.0.0.0:3000->3080/tcp, :::3000->3080/tcp   serene_aryabhata
+  
+  ```
 
 ### **5. Enable external access to the web application**
 Update Security Group to Open Port 3000:
