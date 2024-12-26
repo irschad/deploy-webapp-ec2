@@ -2,11 +2,6 @@
 
 ## Project Overview
 
-**Technologies Used**:  
-- AWS  
-- Docker  
-- Linux  
-
 ### **Project Description**  
 This project involves manually deploying a web application on an EC2 instance. The deployment process includes the following steps:  
 1. Create and configure an EC2 Instance on AWS.  
@@ -14,6 +9,10 @@ This project involves manually deploying a web application on an EC2 instance. T
 3. Deploy a Docker image from a private Docker repository on the EC2 instance.  
 4. Enable external access and run the web application.
 
+**Technologies**:  
+- AWS  
+- Docker  
+- Linux  
 ---
 
 ## Steps to Deploy the Web Application  
