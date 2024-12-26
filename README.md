@@ -21,11 +21,17 @@ This project involves manually deploying a web application on an EC2 instance. T
 ### **1. Create and Configure an EC2 Instance on AWS**
 Follow these steps to create and configure an EC2 instance:
 - Launch an **Amazon Linux 2** instance with **t2.micro** instance type.  Indicate Name as 'my-instance'
-- Set the **Auto-assign Public IP** to **Enable**.  
+- Set the **Auto-assign Public IP** to **Enable**.
 - Create a security group called "security-group-docker-server" allowing SSH (port 22) access from **My IP**.
+- Create key-pair and name it 'docker-server'. Select private key file format as 'pem' for Linux. 
 - Add tag: enter Key as 'Type' and Value as "web-server-with-docker"
 
 ### **2. Connect to EC2 Instance via SSH**
+Move the 'docker-server.pem' key file into the ssh folder ~/.ssh. 
+Restrict the file permissions: 
+```bash
+chmod 400 ~/.ssh/docker-server.pem.
+```
 Connect to the EC2 instance using the private key:
 ```bash
 ssh -i ~/.ssh/docker-server.pem ec2-user@http://98.80.231.175/
