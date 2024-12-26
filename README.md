@@ -31,9 +31,13 @@ ssh -i ~/.ssh/docker-server.pem ec2-user@http://98.80.231.175/
 ```
 
 ### **3. Install Docker on EC2 instance**
+- Update package manager
   ```bash
   sudo yum update
-  sudo yum install docker
+   ```
+- Run docker install command.
+  ```bash
+  sudo yum install docker -y
   ```
 - Start docker daemon
   ```bash
