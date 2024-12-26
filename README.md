@@ -53,13 +53,17 @@ ssh -i ~/.ssh/docker-server.pem ec2-user@http://98.80.231.175/
 - Check if docker is running
   ```bash
   ps aux | grep docker
+  root        2358  0.1 10.5 2028232 102672 ?      Ssl  12:02   0:24 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --default-ulimit nofile=32768:65536
+  root        5297  0.0  0.3 1531804 3488 ?        Sl   12:31   0:00 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 3000 -container-ip 172.17.0.2 -container-port 3080
+  root        5302  0.0  0.4 1683364 3904 ?        Sl   12:31   0:00 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 3000 -container-ip 172.17.0.2 -container-port 3080
+  ec2-user   18188  0.0  0.2 222312  2040 pts/0    S+   16:26   0:00 grep --color=auto docker
   ```
 - Add current user to docker group 
   ```bash
   sudo usermod -aG docker $USER
   ```
-- Disconnect and reconnect via SSH to apply the changes
-  Run groups command to see docker group is added
+- Disconnect and reconnect via SSH to apply the changes.
+  Run 'groups' command to see docker group is added
   ```bash
   groups
   ec2-user adm wheel systemd-journal docker
@@ -87,7 +91,7 @@ Update Security Group to Open Port 3000:
 - Edit Security Group Rules:
   - Go to the Security tab.
   - Click on the security group linked to your instance.
-  - Open the Inbound Rules tab and click Edit inbound rules.
+  - Open the Inbound Rules tab and click 'Edit inbound rules'.
 - Add Rule for Port 3000:
   - Add a rule with the following details:
     - Type: Custom TCP
