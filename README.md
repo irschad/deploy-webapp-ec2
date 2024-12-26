@@ -30,7 +30,7 @@ Follow these steps to create and configure an EC2 instance:
 Move the 'docker-server.pem' key file into the ssh folder ~/.ssh. 
 Restrict the file permissions: 
 ```bash
-chmod 400 ~/.ssh/docker-server.pem.
+chmod 400 ~/.ssh/docker-server.pem
 ```
 Connect to the EC2 instance using the private key:
 ```bash
