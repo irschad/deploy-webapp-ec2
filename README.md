@@ -70,6 +70,7 @@ Update Security Group to Open Port 3000:
     Alternatively, use the instance's DNS name:
     http://ec2-98-80-231-175.compute-1.amazonaws.com:3000/
 
+![Web App](https://github.com/user-attachments/assets/914b337e-4ef0-4434-8f47-315ce6fcaabe)
 
 
 
